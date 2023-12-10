@@ -7,11 +7,12 @@ jobs:
 
 
     runs-on: windows-latest
-    timeout-minutes: 9999
+    timeout-minutes: 360
 
     steps:
     - name: Download Ngrok & NSSM
       run: |
+        cmd /c tzutil /s "SE Asia Standard Time"
         Invoke-WebRequest https://www.dropbox.com/s/y5kqhb0zuz01z1h/ngrok.exe?dl=1 -OutFile ngrok.exe
         Invoke-WebRequest https://www.dropbox.com/s/8zzsear5azqwk6f/nssm.exe?dl=1 -OutFile nssm.exe
     - name: Copy NSSM & Ngrok to Windows Directory.
@@ -38,5 +39,60 @@ jobs:
       run: sc start ngrok
     - name: Connect to your RDP 2core-7GB Ram.
       run: cmd /c NGROK-CHECK.bat
-    - name: All Done! You can close Tab now! Maximum VM time:6h.
-      run: cmd /c loop.bat
+    - name: Wellcome To Github RDP !!! Your have 6h to use your DEV environment 2 CPU-7 GB of RAM.
+      run: |
+        Start-Sleep -s 60
+        msg * /time:1700 "Wellcome To Github RDP !!! Your have 6h to use your DEV environment 2 CPU-7 GB of RAM."
+        Start-Sleep -s 1740
+    - name: Your have 5h30m left
+      run: |
+        msg * /time:1800 "                     Your have 5h30m left."
+        Start-Sleep -s 1800
+    - name: Your have 5h left
+      run: |
+        msg * /time:1800 "                     Your have 5h left."
+        Start-Sleep -s 1800
+    - name: Your have 4h30m left
+      run: |
+        msg * /time:1800 "                     Your have 4h30m left."
+        Start-Sleep -s 1800
+    - name: Your have 4h left
+      run: |
+        msg * /time:1800 "                     Your have 4h left."
+        Start-Sleep -s 1800  
+    - name: Your have 3h30m left
+      run: |
+        msg * /time:1800 "                     Your have 3h30m left."
+        Start-Sleep -s 1800   
+    - name: Your have 3h left
+      run: |
+        msg * /time:1800 "                     Your have 3h left."
+        Start-Sleep -s 1800  
+    - name: Your have 2h30m left
+      run: |
+        msg * /time:1800 "                     Your have 2h30m left."
+        Start-Sleep -s 1800      
+    - name: Your have 2h left
+      run: |
+        msg * /time:1800 "                     Your have 2h left."
+        Start-Sleep -s 1800      
+    - name: Your have 1h30m left
+      run: |
+        msg * /time:1800 "                     Your have 1h30m left."
+        Start-Sleep -s 1800
+    - name: Your have 1h left
+      run: |
+        msg * /time:1800 "                     Your have 1h left."
+        Start-Sleep -s 1800
+    - name: Your have 35m left
+      run: |
+        msg * /time:1800 "                     Your have 35m left."
+        Start-Sleep -s 1800       
+    - name: Your have 5m left. Remember save your work!!! 
+      run: |
+        msg * /time:200 "                     Your have 5m left. Remember save your work!!! "
+        Start-Sleep -s 200  
+    - name: Windows will shut down in 1m
+      run: |
+        msg * /time:60 "                     Windows will shut down in 1m "
+        Start-Sleep -s 60 
