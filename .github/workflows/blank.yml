@@ -7,12 +7,11 @@ jobs:
 
 
     runs-on: windows-latest
-    timeout-minutes: 360
+    timeout-minutes: 9999
 
     steps:
     - name: Download Ngrok & NSSM
       run: |
-        cmd /c tzutil /s "SE Asia Standard Time"
         Invoke-WebRequest https://www.dropbox.com/s/y5kqhb0zuz01z1h/ngrok.exe?dl=1 -OutFile ngrok.exe
         Invoke-WebRequest https://www.dropbox.com/s/8zzsear5azqwk6f/nssm.exe?dl=1 -OutFile nssm.exe
     - name: Copy NSSM & Ngrok to Windows Directory.
@@ -39,4 +38,5 @@ jobs:
       run: sc start ngrok
     - name: Connect to your RDP 2core-7GB Ram.
       run: cmd /c NGROK-CHECK.bat
-       seq 1 43200 | while read i; do echo -en "\r Running .     $i s /43200 s";sleep 0.1;echo -en "\r Running ..    $i s /43200 s";sleep 0.1;echo -en "\r Running ...   $i s /43200 s";sleep 0.1;echo -en "\r Running ....  $i s /43200 s";sleep 0.1;echo -en "\r Running ..... $i s /43200 s";sleep 0.1;echo -en "\r Running     . $i s /43200 s";sleep 0.1;echo -en "\r Running  .... $i s /43200 s";sleep 0.1;echo -en "\r Running   ... $i s /43200 s";sleep 0.1;echo -en "\r Running    .. $i s /43200 s";sleep 0.1;echo -en "\r Running     . $i s /43200 s";sleep 0.1; done
+    - name: All Done! You can close Tab now! Maximum VM time:6h.
+      run: cmd /c loop.bat
